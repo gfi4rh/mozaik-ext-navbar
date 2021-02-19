@@ -33,7 +33,22 @@ class Sprint extends Component {
 
     render() {
         return (
-            <div>Hello</div>
+            <div className={cssClasses}>
+                <div className="widget__header">
+                    <span>
+                        <span className="widget__header__subject">Sprint</span>
+                    </span>
+                    <span className="widget__header__count">
+                        3
+                    </span>
+                    <i className="fa fa-bug" />
+                </div>
+                <div className="widget__body">
+                    <div>
+                        Hello
+                    </div>
+                </div>
+            </div>
         );
     }
 }
