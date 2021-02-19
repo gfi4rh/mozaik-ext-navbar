@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { ListenerMixin }               from 'reflux';
+import reactMixin                      from 'react-mixin';
 import classNames                      from 'classnames'
 import d3                              from 'd3/d3'
 import moment                          from 'moment'
@@ -55,14 +57,12 @@ class Sprint extends Component {
 
 Sprint.displayName = 'Sprint';
 
-/*Clock.propTypes = {
-    title:    PropTypes.string,
-    info:     PropTypes.string,
-    timezone: PropTypes.string,
-    sunRise:  PropTypes.string.isRequired,
-    sunSet:   PropTypes.string.isRequired
-};*/
+Sprint.propTypes = {
+    board:  PropTypes.number.isRequired
+};
 
+reactMixin(Sprint.prototype, ListenerMixin);
+reactMixin(Sprint.prototype, Mozaik.Mixin.ApiConsumer);
 
 
 
