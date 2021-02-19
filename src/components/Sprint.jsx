@@ -31,7 +31,7 @@ class Sprint extends Component {
             return;
         }
 
-        this.listenTo(Mozaik.Sotre.Api, this.onAllApiData);
+        this.listenTo(Mozaik.Store.Api, this.onAllApiData);
     }
 
     onAllApiData(data) {
