@@ -80,7 +80,6 @@ class Sprint extends Component {
                 </div>
                 <div className="widget__body">
                     <div>
-                        Hello
                     </div>
                 </div>
             </div>
