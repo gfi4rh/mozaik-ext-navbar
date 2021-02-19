@@ -15,6 +15,7 @@ class Sprint extends Component {
         this.state = {
             sprint : null
         }
+        
     }
 
     componentWillMount() {
@@ -31,7 +32,7 @@ class Sprint extends Component {
             return;
         }
 
-        this.listenTo(Mozaik.Store.Api, this.onAllApiData);
+        //this.listenTo(Mozaik.Store.Api, this.onAllApiData);
     }
 
     onAllApiData(data) {
@@ -70,10 +71,10 @@ class Sprint extends Component {
             <div>
                 <div className="widget__header">
                     <span>
-                        <span className="widget__header__subject">Sprint</span>
+                        <span className="widget__header__subject">{this.props.title}</span>
                     </span>
                     <span className="widget__header__count">
-                        3
+                        
                     </span>
                     <i className="fa fa-bug" />
                 </div>
