@@ -16,6 +16,37 @@ class Sprint extends Component {
         }
     }
 
+    componentWillMount() {
+        const displayName = this.constructor.displayName || 'Unknown';
+
+        if (!this.getApiRequest) {
+            console.warn(`Seems you're trying to use 'ApiConsumerMixin' without implementing 'getApiRequest()', see '${displayName}' component`);
+            return;
+        }
+
+        this.apiRequest = this.getApiRequest();
+        if (!this.apiRequest.id) {
+            console.error(`'getApiRequest()' MUST return an object with an 'id' property, see '${displayName}' component`);
+            return;
+        }
+
+        this.listenTo(Mozaik.Sotre.Api, this.onAllApiData);
+    }
+
+    onAllApiData(data) {
+        if (data.id === this.apiRequest.id) {
+            this.onApiData(data.body);
+        }
+    }
+
+    componentDidMount() {
+        if (!this.apiRequest || !this.apiRequest.id) {
+            return;
+        }
+
+        Mozaik.Actions.Api.get(this.apiRequest.id, this.apiRequest.params || {});
+    }
+
     getApiRequest() {
         let { board } = this.props;
 
@@ -61,8 +92,6 @@ Sprint.propTypes = {
     board:  PropTypes.number.isRequired
 };
 
-reactMixin(Sprint.prototype, ListenerMixin);
-reactMixin(Sprint.prototype, Mozaik.Mixin.ApiConsumer);
 
 
 
