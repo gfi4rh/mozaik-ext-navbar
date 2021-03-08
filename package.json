@@ -33,10 +33,10 @@
     "moment-timezone": "0.5.3",
     "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2",
-    "react-mixin": "^5.0.0",
+    "react-mixin": "3.0.4",
     "reflux": "^0.4.1"
   },
-  "deprecated": false,
+  "deprecated": true,
   "description": "Mozaik pattern widgets",
   "devDependencies": {
     "ava": "0.13.0",
