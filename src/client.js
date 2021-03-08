@@ -13,7 +13,7 @@ const client = mozaik => {
           'Authorization': 'Basic ' + encode(`${process.env.JIRA_USERNAME}:${process.env.JIRA_PASSWORD}`),
           'Content-Type': 'application/json'
         }
-      }).then(res => res.body)
+      }).then(res => res.json())
     }
     
   }
