@@ -46,7 +46,7 @@ class Sprint extends Component {
                         <span className="widget__header__subject">{this.props.title}</span>
                     </span>
                     <span className="widget__header__count">
-                        {sprint.name}
+                        {sprint ? null : sprint.name}
                     </span>
                     <i className="fa fa-bug" />
                 </div>
