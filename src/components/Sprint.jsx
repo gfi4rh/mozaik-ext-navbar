@@ -62,7 +62,7 @@ Sprint.propTypes = {
     board:  PropTypes.number.isRequired
 };
 
-reactMixin(TopCommitter.prototype, ListenerMixin);
-reactMixin(TopCommitter.prototype, Mozaik.Mixin.ApiConsumer);
+reactMixin(Sprint.prototype, ListenerMixin);
+reactMixin(Sprint.prototype, Mozaik.Mixin.ApiConsumer);
 
 export default Sprint;
