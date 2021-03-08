@@ -30,6 +30,7 @@ class Sprint extends Component {
     }
 
     onApiData(sprint) {
+        console.log(sprint)
         this.setState({
             sprint: sprint
         });
