@@ -9,6 +9,7 @@ const client = mozaik => {
     async sprint( board ) {
 
       mozaik.logger.info(chalk.yellow(`[jira] calling board: ${board}`));
+      mozaik.logger.info(chalk.green(process.env[JIRA_USERNAME]));
 
       return fetch(`https://delivery.gfi.fr/jira/rest/agile/1.0/board/${board}/sprint`, {
         method: 'GET',

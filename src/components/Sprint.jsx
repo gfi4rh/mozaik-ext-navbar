@@ -34,7 +34,7 @@ class Sprint extends Component {
 
         //this.listenTo(Mozaik.Store.Api, this.onAllApiData);
     }
-
+    
     onAllApiData(data) {
         if (data.id === this.apiRequest.id) {
             this.onApiData(data.body);
