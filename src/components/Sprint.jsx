@@ -37,8 +37,6 @@ class Sprint extends Component {
 
     render() {
 
-        const { sprint } = this.state;
-
         return (
             <div>
                 <div className="widget__header">
@@ -46,7 +44,7 @@ class Sprint extends Component {
                         <span className="widget__header__subject">{this.props.title}</span>
                     </span>
                     <span className="widget__header__count">
-                        {sprint ? '' : sprint.name}
+                        {this.state.sprint.name || ''}
                     </span>
                     <i className="fa fa-bug" />
                 </div>
