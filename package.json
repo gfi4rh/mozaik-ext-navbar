@@ -47,7 +47,7 @@
     "eslint": "2.2.0",
     "eslint-plugin-react": "4.2.2",
     "nyc": "6.1.1",
-    "react": "^17.0.1"
+    "react": "^0.13.3"
   },
   "engines": {
     "node": "14.15.x",
@@ -72,8 +72,8 @@
     ]
   },
   "peerDependencies": {
-    "mozaik": ">=1.1.0",
-    "react": "^17.0.1"
+    "mozaik": ">=2.0.0",
+    "react": "^0.13.3"
   },
   "repository": {
     "type": "git",

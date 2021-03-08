@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Mozaik                          from 'mozaik/browser';
-/*import { ListenerMixin }               from 'reflux';
+import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';
-import classNames                      from 'classnames'
+/*import classNames                      from 'classnames'
 import d3                              from 'd3/d3'
 import moment                          from 'moment'
 import timezone                        from 'moment-timezone'*/
@@ -16,37 +16,6 @@ class Sprint extends Component {
             sprint : null
         }
         
-    }
-
-    componentWillMount() {
-        const displayName = this.constructor.displayName || 'Unknown';
-
-        if (!this.getApiRequest) {
-            console.warn(`Seems you're trying to use 'ApiConsumerMixin' without implementing 'getApiRequest()', see '${displayName}' component`);
-            return;
-        }
-
-        this.apiRequest = this.getApiRequest();
-        if (!this.apiRequest.id) {
-            console.error(`'getApiRequest()' MUST return an object with an 'id' property, see '${displayName}' component`);
-            return;
-        }
-
-        //this.listenTo(Mozaik.Store.Api, this.onAllApiData);
-    }
-    
-    onAllApiData(data) {
-        if (data.id === this.apiRequest.id) {
-            this.onApiData(data.body);
-        }
-    }
-
-    componentDidMount() {
-        if (!this.apiRequest || !this.apiRequest.id) {
-            return;
-        }
-
-        Mozaik.Actions.Api.get(this.apiRequest.id, this.apiRequest.params || {});
     }
 
     getApiRequest() {
@@ -93,7 +62,7 @@ Sprint.propTypes = {
     board:  PropTypes.number.isRequired
 };
 
-
-
+reactMixin(TopCommitter.prototype, ListenerMixin);
+reactMixin(TopCommitter.prototype, Mozaik.Mixin.ApiConsumer);
 
 export default Sprint;

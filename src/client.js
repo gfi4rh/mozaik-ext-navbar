@@ -1,20 +1,16 @@
 import fetch from 'node-fetch';
 import { encode } from 'base-64';
-import chalk from 'chalk';
 
 const client = mozaik => {
 
   return {
 
-    async sprint( board ) {
+    sprint( board ) {
 
-      mozaik.logger.info(chalk.yellow(`[jira] calling board: ${board}`));
-      mozaik.logger.info(chalk.green(process.env[JIRA_USERNAME]));
-
-      return fetch(`https://delivery.gfi.fr/jira/rest/agile/1.0/board/${board}/sprint`, {
+      return fetch(`https://delivery.gfi.fr/jira/rest/agile/1.0/board/${board.board}/sprint`, {
         method: 'GET',
         headers: {
-          'Authorization': 'Basic ' + encode(`${process.env[JIRA_USERNAME]}:${process.env[JIRA_PASSWORD]}`),
+          'Authorization': 'Basic ' + encode(`${process.env.JIRA_USERNAME}:${process.env.JIRA_PASSWORD}`),
           'Accept': 'application/json'
         }
       })
@@ -22,6 +18,5 @@ const client = mozaik => {
     
   }
 }
-
 
 export default client;
