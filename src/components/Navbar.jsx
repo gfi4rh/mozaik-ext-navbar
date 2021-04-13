@@ -6,6 +6,7 @@ import reactMixin                      from 'react-mixin';
 import d3                              from 'd3/d3'
 import moment                          from 'moment'
 import timezone                        from 'moment-timezone'*/
+import { Forward, Pause, Play }        from './Shapes.jsx';
 
 
 class Navbar extends Component {
@@ -40,6 +41,9 @@ class Navbar extends Component {
         return (
             <div className="widget__body">
                 <div>
+                    <Forward/>
+                    <Pause/>
+                    <Play/>
                 </div>
             </div>
         );
