@@ -46,7 +46,7 @@ class Sprint extends Component {
                     <span className="widget__header__count">
                         {this.state.sprint === null ? '' : this.state.sprint.values[0].name.split('-')[2]}
                     </span>
-                    <i className="fa fa-bug" />
+                    <i className="fa fa-running" />
                 </div>
                 <div className="widget__body">
                     <div>
