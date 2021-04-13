@@ -8,16 +8,16 @@ import moment                          from 'moment'
 import timezone                        from 'moment-timezone'*/
 
 
-class Sprint extends Component {
+class Navbar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        /*this.state = {
             sprint : null
-        }
+        }*/
         
     }
 
-    getApiRequest() {
+    /*getApiRequest() {
         let { board } = this.props;
 
         return {
@@ -33,37 +33,22 @@ class Sprint extends Component {
         this.setState({
             sprint: sprint
         });
-    }
+    }*/
 
     render() {
 
         return (
-            <div>
-                <div className="widget__header">
-                    <span>
-                        <span className="widget__header__subject">{this.props.title}</span>
-                    </span>
-                    <span className="widget__header__count">
-                        {this.state.sprint === null ? '' : this.state.sprint.values[0].name.split('-')[2]}
-                    </span>
-                    <i className="fa fa-running" />
-                </div>
-                <div className="widget__body">
-                    <div>
-                    </div>
+            <div className="widget__body">
+                <div>
                 </div>
             </div>
         );
     }
 }
 
-Sprint.displayName = 'Sprint';
+Navbar.displayName = 'Navbar';
 
-Sprint.propTypes = {
-    board:  PropTypes.number.isRequired
-};
+reactMixin(Navbar.prototype, ListenerMixin);
+reactMixin(Navbar.prototype, Mozaik.Mixin.ApiConsumer);
 
-reactMixin(Sprint.prototype, ListenerMixin);
-reactMixin(Sprint.prototype, Mozaik.Mixin.ApiConsumer);
-
-export default Sprint;
+export default Navbar;
