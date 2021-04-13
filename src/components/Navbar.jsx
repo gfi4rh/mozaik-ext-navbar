@@ -39,13 +39,12 @@ class Navbar extends Component {
     render() {
 
         return (
-            <div className="container">
-                <div className="element"><Forward/></div>
-                <div className="element"><Pause/></div>
-                <div className="element"><Play/></div>
-                <div className="element"><Login/></div>
-                <div className="element"><Logout/></div>
-                
+            <div className="navbar__container">
+                <div className="navbar__playstop"><Pause/></div>
+                <div className="navbar__forward"><Forward/></div>
+                <label className="navbar__msg">Le message est ici</label>
+                <div className="navbar__log"><Login/></div>
+                <div className="navbar__version">v 1.0.0</div>
             </div>
         );
     }
