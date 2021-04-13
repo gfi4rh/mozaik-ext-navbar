@@ -39,7 +39,7 @@ class Navbar extends Component {
     render() {
 
         return (
-            <div className="widget__body">
+            <div className="container">
                 <div className="element"><Forward/></div>
                 <div className="element"><Pause/></div>
                 <div className="element"><Play/></div>
