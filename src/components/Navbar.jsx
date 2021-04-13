@@ -40,13 +40,12 @@ class Navbar extends Component {
 
         return (
             <div className="widget__body">
-                <div className="test__figma">
-                    <Forward/>
-                    <Pause/>
-                    <Play/>
-                    <Login/>
-                    <Logout/>
-                </div>
+                <div className="element"><Forward/></div>
+                <div className="element"><Pause/></div>
+                <div className="element"><Play/></div>
+                <div className="element"><Login/></div>
+                <div className="element"><Logout/></div>
+                
             </div>
         );
     }
