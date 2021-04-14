@@ -12,14 +12,11 @@ import { Forward, Pause, Play, Login, Logout }        from './Shapes.jsx';
 class Navbar extends Component {
     constructor(props) {
         super(props);
-        /*this.state = {
-            sprint : null
-        }*/
-        
+        this.openLogger = this.openLogger.bind(this)
+        this.openInfo = this.openInfo.bind(this)
     }
 
     /*getApiRequest() {
-        let { board } = this.props;
 
         return {
             id:     `api.sprint.${ board }`,
@@ -36,6 +33,14 @@ class Navbar extends Component {
         });
     }*/
 
+    openLogger() {
+        alert('hello world')
+    }
+
+    openInfo(){
+        alert('info')
+    }
+
     render() {
 
         return (
@@ -45,8 +50,8 @@ class Navbar extends Component {
                 <label className="navbar__msg">
                     Le message est ici
                 </label>
-                <Login/>
-                <div className="navbar__version">v 1.0.0</div>
+                <Login onClick={this.openLogger}/>
+                <div className="navbar__version" onClick={this.openInfo}>v 1.0.0</div>
             </div>
         );
     }
