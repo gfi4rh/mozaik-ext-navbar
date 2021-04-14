@@ -40,10 +40,14 @@ class Navbar extends Component {
 
         return (
             <div className="navbar__container">
-                <Pause className="navbar__playstop"/>
-                <Forward className="navbar__forward"/>
-                <label className="navbar__msg">Le message est ici</label>
-                <Login className="navbar__log"/>
+                <div>
+                    <Pause className="navbar__playstop"/>
+                    <Forward className="navbar__forward"/>
+                </div>
+                <label className="navbar__msg">
+                    Le message est ici
+                </label>
+                <div><Login className="navbar__log"/></div>
                 <div className="navbar__version">v 1.0.0</div>
             </div>
         );
