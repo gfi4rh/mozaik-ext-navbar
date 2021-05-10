@@ -15,6 +15,7 @@ class Navbar extends Component {
         super(props);
         this.openLogger = this.openLogger.bind(this)
         this.openInfo = this.openInfo.bind(this)
+        this.togglePause = this.togglePause.bind(this)
     }
 
     /*getApiRequest() {
@@ -42,11 +43,16 @@ class Navbar extends Component {
         alert('info')
     }
 
+    togglePause(){
+        Dashboard.paused ? Dashboard.restart() : Dashboard.pause()
+        this.forceUpdate();
+    }
+
     render() {
 
         return (
             <div className="navbar__container">
-                {Dashboard.paused ? <Play onClick={Dashboard.restart}/> : <Pause onClick={Dashboard.pause}/>}
+                {Dashboard.paused ? <Play onClick={this.togglePause}/> : <Pause onClick={this.togglePause}/>}
                 <Forward onClick={Dashboard.nextDashboard}/>
                 <label className="navbar__msg">
                     Le message est ici
