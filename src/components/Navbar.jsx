@@ -46,7 +46,7 @@ class Navbar extends Component {
 
         return (
             <div className="navbar__container">
-                <Pause/>
+                <Pause onClick={Dashboard.stop}/>
                 <Forward onClick={Dashboard.nextDashboard}/>
                 <label className="navbar__msg">
                     Le message est ici
