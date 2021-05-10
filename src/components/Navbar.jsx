@@ -7,6 +7,7 @@ import d3                              from 'd3/d3'
 import moment                          from 'moment'
 import timezone                        from 'moment-timezone'*/
 import { Forward, Pause, Play, Login, Logout }        from './Shapes.jsx';
+const { Dashboard } = Mozaik.Store;
 
 
 class Navbar extends Component {
@@ -46,7 +47,7 @@ class Navbar extends Component {
         return (
             <div className="navbar__container">
                 <Pause/>
-                <Forward/>
+                <Forward onClick={Dashboard.nextDashboard}/>
                 <label className="navbar__msg">
                     Le message est ici
                 </label>
