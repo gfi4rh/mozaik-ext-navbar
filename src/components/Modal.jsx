@@ -10,7 +10,7 @@ class Modal extends Component {
 
     const { show, handleClose, children } = this.props;
 
-    var display = show ? ' modal__back modal__block' : ' modal__back modal__none';
+    var display = show ? 'modal__back modal__block' : 'modal__back modal__none';
 
     return(
       <div className={display}>
