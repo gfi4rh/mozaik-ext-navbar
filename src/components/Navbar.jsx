@@ -7,14 +7,22 @@ import d3                              from 'd3/d3'
 import moment                          from 'moment'
 import timezone                        from 'moment-timezone'*/
 import { Forward, Pause, Play, Login, Logout }        from './Shapes.jsx';
+import Logger from './Logger.jsx'
+import Modal from './Modal.jsx'
 const { Dashboard } = Mozaik.Store;
 
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
+        this.setState = {
+            showLogger : false,
+            showInfo : false
+        }
         this.openLogger = this.openLogger.bind(this)
+        this.closeLogger = this.closeLogger.bind(this)
         this.openInfo = this.openInfo.bind(this)
+        this.closeInfo = this.closeInfo.bind(this)
         this.togglePause = this.togglePause.bind(this)
     }
 
@@ -35,13 +43,13 @@ class Navbar extends Component {
         });
     }*/
 
-    openLogger() {
-        alert('hello world')
-    }
+    openLogger() {this.setState({showLogger : true})}
 
-    openInfo(){
-        alert('info')
-    }
+    closeLogger(){this.setState({showLogger : false})}
+
+    openInfo(){this.setState({showInfo : true})}
+
+    closeInfo(){this.setState({showInfo : false})}
 
     togglePause(){
         Dashboard.paused() ? Dashboard.restart() : Dashboard.pause();
@@ -49,6 +57,8 @@ class Navbar extends Component {
     }
 
     render() {
+
+        const { showLogger, showInfo } = this.state;
 
         return (
             <div className="navbar__container">
@@ -58,7 +68,12 @@ class Navbar extends Component {
                     Le message est ici
                 </label>
                 <Login onClick={this.openLogger}/>
+                <Modal show={showLogger} handleClose={this.closeLogger}>
+                    <Logger/>
+                </Modal>
                 <div className="navbar__version" onClick={this.openInfo}>v 1.0.0</div>
+                <Modal show={showInfo} handleClose={this.closeInfo}>
+                </Modal>
             </div>
         );
     }
