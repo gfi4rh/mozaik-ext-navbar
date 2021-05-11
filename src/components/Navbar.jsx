@@ -15,7 +15,7 @@ const { Dashboard } = Mozaik.Store;
 class Navbar extends Component {
     constructor(props) {
         super(props);
-        this.setState = {
+        this.state = {
             showLogger : false,
             showInfo : false
         }
