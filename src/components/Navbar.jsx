@@ -44,7 +44,7 @@ class Navbar extends Component {
     }
 
     togglePause(){
-        Dashboard.paused ? Dashboard.restart() : Dashboard.pause()
+        Dashboard.paused() ? Dashboard.restart() : Dashboard.pause();
         this.forceUpdate();
     }
 
@@ -52,7 +52,7 @@ class Navbar extends Component {
 
         return (
             <div className="navbar__container">
-                {Dashboard.paused ? <Play onClick={this.togglePause}/> : <Pause onClick={this.togglePause}/>}
+                {Dashboard.paused() ? <Play onClick={this.togglePause}/> : <Pause onClick={this.togglePause}/>}
                 <Forward onClick={Dashboard.nextDashboard}/>
                 <label className="navbar__msg">
                     Le message est ici
