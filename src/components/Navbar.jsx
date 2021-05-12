@@ -44,7 +44,7 @@ class Navbar extends Component {
     }*/
 
     openLogger() {
-        if(!Dashboard.paused()){Dashboard.paused()}
+        if(!Dashboard.paused()){Dashboard.pause()}
         this.forceUpdate();
         this.setState({showLogger : true})
     }
@@ -55,7 +55,7 @@ class Navbar extends Component {
         this.setState({showLogger : false})}
 
     openInfo(){
-        if(!Dashboard.paused()){Dashboard.paused()}
+        if(!Dashboard.paused()){Dashboard.pause()}
         this.forceUpdate();
         this.setState({showInfo : true})}
 
