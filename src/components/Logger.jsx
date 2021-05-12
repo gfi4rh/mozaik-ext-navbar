@@ -8,8 +8,8 @@ class Logger extends Component {
 
   render(){
     return(
-      <div className="logger__form">
-        <form action="POST">
+      <div>
+        <form action="GET" className="logger__form">
           <label htmlFor="username" className="logger__label">Username</label>
           <input type="text" name="username" className="logger__input"/>
           <label htmlFor="password" className="logger__label">Password</label>
