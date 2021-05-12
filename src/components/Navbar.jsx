@@ -43,13 +43,22 @@ class Navbar extends Component {
         });
     }*/
 
-    openLogger() {this.setState({showLogger : true})}
+    openLogger() {
+        if(!Dashboard.paused()){Dashboard.paused()}
+        this.setState({showLogger : true})
+    }
 
-    closeLogger(){this.setState({showLogger : false})}
+    closeLogger(){
+        if(Dashboard.paused()){Dashboard.restart()}
+        this.setState({showLogger : false})}
 
-    openInfo(){this.setState({showInfo : true})}
+    openInfo(){
+        if(!Dashboard.paused()){Dashboard.paused()}
+        this.setState({showInfo : true})}
 
-    closeInfo(){this.setState({showInfo : false})}
+    closeInfo(){
+        if(Dashboard.paused()){Dashboard.restart()}
+        this.setState({showInfo : false})}
 
     togglePause(){
         Dashboard.paused() ? Dashboard.restart() : Dashboard.pause();
