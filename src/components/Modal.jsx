@@ -26,9 +26,6 @@ class Modal extends Component {
       <div className={display} onClick={this.handleOutsideClick}>
         <section className="modal__main" ref={(e) => this.box = e}>
           {children}
-          <button type="button" onClick={handleClose}>
-            Close
-          </button>
         </section>
       </div>
     )
