@@ -4,7 +4,17 @@ class Modal extends Component {
 
   constructor(props){
     super(props)
+    this.box = null
+    this.handleOutsideClick = this.handleOutsideClick.bind(this)
   }
+
+  handleOutsideClick(e) {
+    if(this.box && !this.box.getDOMNode().contains(e.target)){
+      this.props.handleClose()
+    }
+  }
+
+
 
   render(){
 
@@ -13,8 +23,8 @@ class Modal extends Component {
     var display = show ? 'modal__back modal__block' : 'modal__back modal__none';
 
     return(
-      <div className={display}>
-        <section className="modal__main">
+      <div className={display} onClick={this.handleOutsideClick}>
+        <section className="modal__main" ref={(e) => this.box = e}>
           {children}
           <button type="button" onClick={handleClose}>
             Close
