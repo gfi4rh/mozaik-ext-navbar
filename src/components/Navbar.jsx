@@ -82,7 +82,7 @@ class Navbar extends Component {
                     Le message est ici
                 </label>
                 <Login onClick={this.openLogger}/>
-                <Modal show={showLogger}>
+                <Modal show={showLogger} handleClose={this.closeLogger}>
                     <Logger handleClose={this.closeLogger}/>
                 </Modal>
                 <div className="navbar__version" onClick={this.openInfo}>v 1.0.0</div>
