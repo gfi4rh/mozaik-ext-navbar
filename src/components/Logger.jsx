@@ -7,6 +7,9 @@ class Logger extends Component {
   }
 
   render(){
+
+    const { handleClose } = this.props
+
     return(
       <div>
         <form action="GET" className="logger__form">
@@ -15,7 +18,7 @@ class Logger extends Component {
           <label htmlFor="password" className="logger__label">Password</label>
           <input type="text" name="password" className="logger__input"/>
           <div className="logger__button__container">
-            <button className="logger__button">Annuler</button>
+            <button type="button" className="logger__button" onClick={handleClose}>Annuler</button>
             <button type="submit" className="logger__button">Connexion</button>
           </div>
         </form>
