@@ -44,24 +44,29 @@ class Navbar extends Component {
     }*/
 
     openLogger() {
-        this.togglePause()
+        if(!Dashboard.paused()){Dashboard.paused()}
+        this.forceUpdate();
         this.setState({showLogger : true})
     }
 
     closeLogger(){
-        this.togglePause()
+        if(Dashboard.paused()){Dashboard.restart()}
+        this.forceUpdate();
         this.setState({showLogger : false})}
 
     openInfo(){
-        this.togglePause()
+        if(!Dashboard.paused()){Dashboard.paused()}
+        this.forceUpdate();
         this.setState({showInfo : true})}
 
     closeInfo(){
-        this.togglePause()
+        if(Dashboard.paused()){Dashboard.restart()}
+        this.forceUpdate();
         this.setState({showInfo : false})}
 
     togglePause(){
         Dashboard.paused() ? Dashboard.restart() : Dashboard.pause();
+        
         this.forceUpdate();
     }
 
