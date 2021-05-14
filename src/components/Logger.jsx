@@ -32,7 +32,22 @@ class Logger extends Component {
     const { username, username_status, password, password_status } = this.state
 
     if(username_status && password_status){
-      return true;
+      const authToken  = fetch(`/login`,{
+        method : 'POST',
+        header : {
+          'Content-Type' : 'application/json'
+        },
+        body : {
+          username : username,
+          password : password
+        }
+      }).then(res => res.json())
+      .then(json => json.authToken)
+
+      if(authToken){
+        document.cookie = "authToken="+authToken
+      }
+
     }
   }
 
