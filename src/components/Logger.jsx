@@ -17,7 +17,7 @@ class Logger extends Component {
   handleChange(e){
     const name = e.target.name
     const value = e.target.value
-    const regex = /^[a-zA-Z0-9!@#$&()\\-`.+,\"]*$/gm
+    const regex = /^[a-zA-Z0-9!@#$&`.+,\"]*$/gm
 
     this.setState({
       [name] : e.target.value
@@ -30,6 +30,7 @@ class Logger extends Component {
 
   handleSubmit(){
     const { username, username_status, password, password_status } = this.state
+    const { handleClose } = this.props
 
     if(username_status && password_status){
       fetch(`/login`,{
@@ -45,6 +46,7 @@ class Logger extends Component {
       .then(json => {
         if(json.authToken){
           document.cookie = "authToken="+json.authToken
+          handleClose()
         }})
     }
   }

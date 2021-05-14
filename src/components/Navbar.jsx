@@ -17,7 +17,8 @@ class Navbar extends Component {
         super(props);
         this.state = {
             showLogger : false,
-            showInfo : false
+            showInfo : false,
+            connected : false
         }
         this.openLogger = this.openLogger.bind(this)
         this.closeLogger = this.closeLogger.bind(this)
@@ -53,6 +54,7 @@ class Navbar extends Component {
         if(Dashboard.paused()){Dashboard.restart()}
         this.forceUpdate();
         this.setState({showLogger : false})}
+        
 
     openInfo(){
         if(!Dashboard.paused()){Dashboard.pause()}
