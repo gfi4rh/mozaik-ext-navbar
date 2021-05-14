@@ -37,10 +37,10 @@ class Logger extends Component {
         header : {
           'Content-Type' : 'application/json'
         },
-        body : {
+        body : JSON.stringify({
           username : username,
           password : password
-        }
+        })
       }).then(res => res.json())
       .then(json => json.authToken)
 
