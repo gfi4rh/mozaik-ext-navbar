@@ -30,7 +30,7 @@ class Logger extends Component {
 
   handleSubmit(){
     const { username, username_status, password, password_status } = this.state
-    const { handleClose } = this.props
+    const { handleClose, login } = this.props
 
     if(username_status && password_status){
       fetch(`/login`,{
@@ -45,7 +45,7 @@ class Logger extends Component {
       }).then(res => res.json())
       .then(json => {
         if(json.authToken){
-          document.cookie = "authToken="+json.authToken
+          login()
           handleClose()
         }})
     }

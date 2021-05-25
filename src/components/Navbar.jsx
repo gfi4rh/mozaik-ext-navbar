@@ -25,6 +25,8 @@ class Navbar extends Component {
         this.openInfo = this.openInfo.bind(this)
         this.closeInfo = this.closeInfo.bind(this)
         this.togglePause = this.togglePause.bind(this)
+        this.login = this.login.bind(this)
+        this.logout = this.logout.bind(this)
     }
 
     /*getApiRequest() {
@@ -68,13 +70,24 @@ class Navbar extends Component {
 
     togglePause(){
         Dashboard.paused() ? Dashboard.restart() : Dashboard.pause();
-        
         this.forceUpdate();
+    }
+
+    login(){
+        this.setState({
+            connected : true
+        })
+    }
+
+    logout(){
+        this.setState({
+            connected : false
+        })
     }
 
     render() {
 
-        const { showLogger, showInfo } = this.state;
+        const { showLogger, showInfo, connected } = this.state;
 
         return (
             <div className="navbar__container">
@@ -83,7 +96,7 @@ class Navbar extends Component {
                 <label className="navbar__msg">
                     Le message est ici
                 </label>
-                <Login onClick={this.openLogger}/>
+                {connected ? <Logout onClick={this.logout}/> : <Login login={this.login} onClick={this.openLogger}/>}
                 <Modal show={showLogger} handleClose={this.closeLogger}>
                     <Logger handleClose={this.closeLogger}/>
                 </Modal>
