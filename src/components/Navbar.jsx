@@ -85,9 +85,11 @@ class Navbar extends Component {
             <div className="navbar__container">
                 {Dashboard.paused() ? <Play onClick={this.togglePause}/> : <Pause onClick={this.togglePause}/>}
                 <Forward onClick={Dashboard.nextDashboard}/>
+                {Dashboard.connected() ? 
+                <input className="navbar__msg"/> : 
                 <label className="navbar__msg">
                     Le message est ici
-                </label>
+                </label>}
                 {Dashboard.connected() ? <Logout onClick={this.logout}/> : <Login  onClick={this.openLogger}/>}
                 <Modal show={showLogger} handleClose={this.closeLogger}>
                     <Logger login={Dashboard.login} handleClose={this.closeLogger}/>
