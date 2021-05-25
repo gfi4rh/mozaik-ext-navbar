@@ -24,6 +24,7 @@ class Navbar extends Component {
         this.openInfo = this.openInfo.bind(this)
         this.closeInfo = this.closeInfo.bind(this)
         this.togglePause = this.togglePause.bind(this)
+        this.logout = this.logout.bind(this)
     }
 
     /*getApiRequest() {
@@ -70,6 +71,11 @@ class Navbar extends Component {
         this.forceUpdate();
     }
 
+    logout(){
+        Dashboard.logout();
+        this.forceUpdate();
+    }
+
 
     render() {
 
@@ -82,7 +88,7 @@ class Navbar extends Component {
                 <label className="navbar__msg">
                     Le message est ici
                 </label>
-                {Dashboard.connected() ? <Logout onClick={Dashboard.logout}/> : <Login  onClick={this.openLogger}/>}
+                {Dashboard.connected() ? <Logout onClick={this.logout}/> : <Login  onClick={this.openLogger}/>}
                 <Modal show={showLogger} handleClose={this.closeLogger}>
                     <Logger login={Dashboard.login} handleClose={this.closeLogger}/>
                 </Modal>
