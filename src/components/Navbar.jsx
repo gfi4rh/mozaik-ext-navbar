@@ -24,8 +24,6 @@ class Navbar extends Component {
         this.openInfo = this.openInfo.bind(this)
         this.closeInfo = this.closeInfo.bind(this)
         this.togglePause = this.togglePause.bind(this)
-        this.login = this.login.bind(this)
-        this.logout = this.logout.bind(this)
     }
 
     /*getApiRequest() {
