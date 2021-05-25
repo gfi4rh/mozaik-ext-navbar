@@ -17,8 +17,7 @@ class Navbar extends Component {
         super(props);
         this.state = {
             showLogger : false,
-            showInfo : false,
-            connected : false
+            showInfo : false
         }
         this.openLogger = this.openLogger.bind(this)
         this.closeLogger = this.closeLogger.bind(this)
@@ -73,21 +72,10 @@ class Navbar extends Component {
         this.forceUpdate();
     }
 
-    login(){
-        this.setState({
-            connected : true
-        })
-    }
-
-    logout(){
-        this.setState({
-            connected : false
-        })
-    }
 
     render() {
 
-        const { showLogger, showInfo, connected } = this.state;
+        const { showLogger, showInfo } = this.state;
 
         return (
             <div className="navbar__container">
@@ -96,9 +84,9 @@ class Navbar extends Component {
                 <label className="navbar__msg">
                     Le message est ici
                 </label>
-                {connected ? <Logout onClick={this.logout}/> : <Login  onClick={this.openLogger}/>}
+                {Dashboard.connected() ? <Logout onClick={Dashboard.logout}/> : <Login  onClick={this.openLogger}/>}
                 <Modal show={showLogger} handleClose={this.closeLogger}>
-                    <Logger login={this.login} handleClose={this.closeLogger}/>
+                    <Logger login={Dashboard.login} handleClose={this.closeLogger}/>
                 </Modal>
                 <div className="navbar__version" onClick={this.openInfo}>v 1.0.0</div>
                 <Modal show={showInfo} handleClose={this.closeInfo}>
