@@ -109,7 +109,8 @@ class Navbar extends Component {
                 <Forward onClick={Dashboard.nextDashboard}/>
                 {Dashboard.connected() ? 
                 <input value={message} onChange={this.handleChange} className="navbar__msg"/> : 
-                <label value={message} className="navbar__msg">
+                <label className="navbar__msg">
+                    {message}
                 </label>}
                 {Dashboard.connected() ? <Logout onClick={this.logout}/> : <Login  onClick={this.openLogger}/>}
                 <Modal show={showLogger} handleClose={this.closeLogger}>
