@@ -34,7 +34,7 @@ class Navbar extends Component {
         const { id } = this.props
 
         return {
-            id:     `navbar.message`,
+            id:     `navbar.message.${id}`,
             params: {
                 id: id
             }
