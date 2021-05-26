@@ -28,7 +28,8 @@ class Navbar extends Component {
         this.logout = this.logout.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.readMessage = this.readMessage.bind(this)
-        setInterval(thi.readMessage, 5000);
+        this.readMessage()
+        setInterval(this.readMessage, 5000);
     }
 
     /*getApiRequest() {
