@@ -6,13 +6,10 @@ const client = mozaik => {
   return {
 
     message( id ) {
-      return fetch('/messsage', {
-        method : 'POST',
+      return fetch(`/messsage/${id}`, {
+        method : 'GET',
         headers : {
           'Content-Type' : 'application/json'
-        },
-        body : {
-          id : id
         }
       })
       .then(res => res.json)
