@@ -17,7 +17,8 @@ class Navbar extends Component {
         super(props);
         this.state = {
             showLogger : false,
-            showInfo : false
+            showInfo : false,
+            message : null
         }
         this.openLogger = this.openLogger.bind(this)
         this.closeLogger = this.closeLogger.bind(this)
@@ -25,24 +26,45 @@ class Navbar extends Component {
         this.closeInfo = this.closeInfo.bind(this)
         this.togglePause = this.togglePause.bind(this)
         this.logout = this.logout.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    /*getApiRequest() {
+    getApiRequest() {
 
         return {
-            id:     `api.sprint.${ board }`,
+            id:     `navbar.message`,
             params: {
-                board: board
+                id: id
             }
         };
     }
 
-    onApiData(sprint) {
-        console.log(sprint)
+    onApiData(data) {
+        console.log(data.msg)
         this.setState({
-            sprint: sprint
+            message: data.msg
         });
-    }*/
+    }
+
+    handleChange(e) {
+        this.setState({
+            message : e.target.value
+        })
+
+        const { message } = this.state
+        const { id } = this.props
+
+        fetch('/message', {
+            method : 'POST',
+            headers : {
+            'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify({
+                id : id,
+                message : message
+            })
+        })
+    }
 
     openLogger() {
         if(!Dashboard.paused()){Dashboard.pause()}
@@ -79,16 +101,15 @@ class Navbar extends Component {
 
     render() {
 
-        const { showLogger, showInfo } = this.state;
+        const { showLogger, showInfo, message } = this.state;
 
         return (
             <div className="navbar__container">
                 {Dashboard.paused() ? <Play onClick={this.togglePause}/> : <Pause onClick={this.togglePause}/>}
                 <Forward onClick={Dashboard.nextDashboard}/>
                 {Dashboard.connected() ? 
-                <input className="navbar__msg"/> : 
-                <label className="navbar__msg">
-                    Le message est ici
+                <input value={message} onChange={this.handleChange} className="navbar__msg"/> : 
+                <label value={message} className="navbar__msg">
                 </label>}
                 {Dashboard.connected() ? <Logout onClick={this.logout}/> : <Login  onClick={this.openLogger}/>}
                 <Modal show={showLogger} handleClose={this.closeLogger}>

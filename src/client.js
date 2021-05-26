@@ -5,16 +5,14 @@ const client = mozaik => {
 
   return {
 
-    sprint( board ) {
-
-      return fetch(`https://delivery.gfi.fr/jira/rest/agile/1.0/board/${board.board}/sprint?state=future,active`, {
-        method: 'GET',
-        headers: {
-          'Authorization': 'Basic ' + encode(`${process.env.JIRA_USERNAME}:${process.env.JIRA_PASSWORD}`),
-          'Content-Type': 'application/json'
+    readMessage( id ) {
+      return fetch('/messsage', {
+        method : 'GET',
+        headers : {
+          'Content-Type' : 'application/json'
         }
       })
-      .then(res => res.json())
+      .then(res => res.json)
     }
     
   }
