@@ -56,7 +56,7 @@ class Navbar extends Component {
         const { message } = this.state
         const { id } = this.props
 
-        fetch('/message', {
+        fetch('/writemessage', {
             method : 'POST',
             headers : {
             'Content-Type' : 'application/json'
