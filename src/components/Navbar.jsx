@@ -32,28 +32,8 @@ class Navbar extends Component {
         setInterval(this.readMessage, 5000);
     }
 
-    /*getApiRequest() {
-
-        const { id } = this.props
-
-        return {
-            id:     `navbar.message.${id}`,
-            params: {
-                id: id
-            }
-        };
-    }
-
-    onApiData(data) {
-        this.setState({
-            message: data.msg
-        });
-    }*/
-
     readMessage(){
-
         const { id } = this.props
-
         fetch(`/message/${id}`, {
             method : 'GET',
             headers : {
