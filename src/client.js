@@ -5,16 +5,15 @@ const client = mozaik => {
 
   return {
 
-    message( id ) {
-      return fetch(`/messsage/${id}`, {
+    message( params ) {
+      return fetch(`/messsage/${params.id}`, {
         method : 'GET',
         headers : {
           'Content-Type' : 'application/json'
         }
       })
       .then(res => res.json)
-    }
-    
+    },
   }
 }
 

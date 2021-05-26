@@ -42,7 +42,6 @@ class Navbar extends Component {
     }
 
     onApiData(data) {
-        console.log(data.msg)
         this.setState({
             message: data.msg
         });
@@ -56,14 +55,13 @@ class Navbar extends Component {
         const { message } = this.state
         const { id } = this.props
 
-        fetch('/writemessage', {
+        fetch(`/writemessage/${id}`, {
             method : 'POST',
             headers : {
             'Content-Type' : 'application/json'
             },
             body : JSON.stringify({
-                id : id,
-                message : message
+                new_msg : message
             })
         })
     }
