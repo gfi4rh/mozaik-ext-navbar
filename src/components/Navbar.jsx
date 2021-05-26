@@ -31,6 +31,8 @@ class Navbar extends Component {
 
     getApiRequest() {
 
+        cosnt { id } = this.props
+
         return {
             id:     `navbar.message`,
             params: {
