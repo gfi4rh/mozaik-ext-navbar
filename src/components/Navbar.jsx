@@ -27,9 +27,11 @@ class Navbar extends Component {
         this.togglePause = this.togglePause.bind(this)
         this.logout = this.logout.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.readMessage = this.readMessage.bind(this)
+        setInterval(thi.readMessage, 5000);
     }
 
-    getApiRequest() {
+    /*getApiRequest() {
 
         const { id } = this.props
 
@@ -45,6 +47,25 @@ class Navbar extends Component {
         this.setState({
             message: data.msg
         });
+    }*/
+
+    readMessage(){
+
+        const { id } = this.props
+
+        fetch(`/message/${id}`, {
+            method : 'GET',
+            headers : {
+            'Content-Type' : 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(json => {
+            this.setState({
+                message : json.msg
+            })
+        })
+
     }
 
     handleChange(e) {
@@ -100,6 +121,8 @@ class Navbar extends Component {
 
 
     render() {
+
+
 
         const { showLogger, showInfo, message } = this.state;
 
