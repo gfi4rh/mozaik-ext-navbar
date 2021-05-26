@@ -5,7 +5,7 @@ const client = mozaik => {
 
   return {
 
-    readMessage( id ) {
+    message( id ) {
       return fetch('/messsage', {
         method : 'GET',
         headers : {
