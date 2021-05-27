@@ -44,7 +44,7 @@ class Logger extends Component {
         })
       }).then(res => res.json())
       .then(json => {
-        if(json.authToken){
+        if(json.auth){
           login()
           handleClose()
         }})
