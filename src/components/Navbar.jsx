@@ -50,20 +50,20 @@ class Navbar extends Component {
     }
 
     handleChange(e) {
+
         this.setState({
             message : e.target.value
-        })
-
-        const { message } = this.state
-        const { id } = this.props
-
-        fetch(`/writemessage/${id}`, {
-            method : 'POST',
-            headers : {
-            'Content-Type' : 'application/json'
-            },
-            body : JSON.stringify({
-                new_msg : message
+        }, () => {
+            const { message } = this.state
+            const { id } = this.props
+            fetch(`/writemessage/${id}`, {
+                method : 'POST',
+                headers : {
+                'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({
+                    new_msg : message
+                })
             })
         })
     }
