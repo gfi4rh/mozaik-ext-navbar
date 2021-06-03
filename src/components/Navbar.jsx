@@ -31,6 +31,7 @@ class Navbar extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.readMessage = this.readMessage.bind(this)
 
+        this.getInfo();
         this.readMessage()
         setInterval(this.readMessage, 1000);
     }
