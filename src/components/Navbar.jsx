@@ -53,14 +53,14 @@ class Navbar extends Component {
     }
 
     getInfo(){
-        fetch('/info',{
+        fetch('/config',{
             method : 'GET',
             headers : {
             'Content-Type' : 'application/json'
             }
         })
         .then(res => res.json())
-        .then(json => this.setState({info : json}))
+        .then(json => this.setState({info : json.info}))
     }
 
     handleChange(e) {
