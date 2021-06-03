@@ -136,7 +136,7 @@ class Navbar extends Component {
                 </Modal>
                 <div className="navbar__version" onClick={this.openInfo}>{info.version}</div>
                 <Modal show={showInfo} handleClose={this.closeInfo}>
-                    <Info info={info}/>
+                    {info && <Info info={info}/>}
                 </Modal>
             </div>
         );

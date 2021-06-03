@@ -8,13 +8,7 @@ class Info extends Component {
 
   render(){
 
-    const {
-      version,
-      last_commit,
-      last_build,
-      commit_author,
-      commit_message
-    } = this.props.info
+    const { version } = this.props
 
     return(
       <div className="info__container">{version}</div>
