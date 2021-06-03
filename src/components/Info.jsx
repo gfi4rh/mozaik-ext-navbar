@@ -12,13 +12,13 @@ class Info extends Component {
 
     return(
       <div className="info__container">
-        <p>Version : <b>{info.version}</b></p>
+        <p>Version :&nbsp;<b>{info.version}</b></p>
         <hr/>
-        <p>Dernier commit : <b>{info.last_commit}</b></p>
-        <p>Autheur : <b>{info.commit_author}</b></p>
-        <p>Message : <b>{info.commit_message}</b></p>
+        <p>Dernier commit :&nbsp;<b>{info.last_commit}</b></p>
+        <p>Autheur :&nbsp;<b>{info.commit_author}</b></p>
+        <p>Message :&nbsp;<b>{info.commit_message}</b></p>
         <hr/>
-        <p>Build timestamp : <b>{info.last_build}</b></p>
+        <p>Build timestamp :&nbsp;<b>{info.last_build}</b></p>
         <p></p>
     </div>
     )
