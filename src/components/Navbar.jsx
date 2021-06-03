@@ -135,7 +135,7 @@ class Navbar extends Component {
                 <Modal show={showLogger} handleClose={this.closeLogger}>
                     <Logger login={Dashboard.login} handleClose={this.closeLogger}/>
                 </Modal>
-                <div className="navbar__version" onClick={this.openInfo}>{info.version}</div>
+                <div className="navbar__version" onClick={this.openInfo}>{info && info.version}</div>
                 <Modal show={showInfo} handleClose={this.closeInfo}>
                     {info && <Info info={info}/>}
                 </Modal>
