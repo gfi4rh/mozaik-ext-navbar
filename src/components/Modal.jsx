@@ -18,7 +18,7 @@ class Modal extends Component {
 
   render(){
 
-    const { show, handleClose, children } = this.props;
+    const { show, children } = this.props;
 
     var display = show ? 'modal__back modal__block' : 'modal__back modal__none';
 

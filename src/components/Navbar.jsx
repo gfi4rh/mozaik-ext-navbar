@@ -9,6 +9,7 @@ import timezone                        from 'moment-timezone'*/
 import { Forward, Pause, Play, Login, Logout }        from './Shapes.jsx';
 import Logger from './Logger.jsx'
 import Modal from './Modal.jsx'
+import Info from './Info.jsx'
 const { Dashboard } = Mozaik.Store;
 
 
@@ -18,7 +19,8 @@ class Navbar extends Component {
         this.state = {
             showLogger : false,
             showInfo : false,
-            message : null
+            message : null,
+            info : null
         }
         this.openLogger = this.openLogger.bind(this)
         this.closeLogger = this.closeLogger.bind(this)
@@ -28,6 +30,7 @@ class Navbar extends Component {
         this.logout = this.logout.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.readMessage = this.readMessage.bind(this)
+
         this.readMessage()
         setInterval(this.readMessage, 1000);
     }
@@ -46,7 +49,17 @@ class Navbar extends Component {
                 message : json.msg
             })
         })
+    }
 
+    getInfo(){
+        fetch('/info',{
+            method : 'GET',
+            headers : {
+            'Content-Type' : 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(json => this.setState({info : json}))
     }
 
     handleChange(e) {
@@ -105,7 +118,8 @@ class Navbar extends Component {
 
 
 
-        const { showLogger, showInfo, message } = this.state;
+        const { showLogger, showInfo, message, info } = this.state;
+
 
         return (
             <div className="navbar__container">
@@ -120,8 +134,9 @@ class Navbar extends Component {
                 <Modal show={showLogger} handleClose={this.closeLogger}>
                     <Logger login={Dashboard.login} handleClose={this.closeLogger}/>
                 </Modal>
-                <div className="navbar__version" onClick={this.openInfo}>v 1.0.0</div>
+                <div className="navbar__version" onClick={this.openInfo}>{info.version}</div>
                 <Modal show={showInfo} handleClose={this.closeInfo}>
+                    <Info info={info}/>
                 </Modal>
             </div>
         );
