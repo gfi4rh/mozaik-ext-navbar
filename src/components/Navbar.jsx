@@ -37,19 +37,22 @@ class Navbar extends Component {
     }
 
     readMessage(){
-        const { id } = this.props
-        fetch(`/message/${id}`, {
-            method : 'GET',
-            headers : {
-            'Content-Type' : 'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(json => {
-            this.setState({
-                message : json.msg
+
+        if(!Dashboard.connected()){
+            const { id } = this.props
+            fetch(`/message/${id}`, {
+                method : 'GET',
+                headers : {
+                'Content-Type' : 'application/json'
+                }
             })
-        })
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    message : json.msg
+                })
+            })
+        }
     }
 
     getInfo(){
