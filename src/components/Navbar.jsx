@@ -130,7 +130,7 @@ class Navbar extends Component {
                 {Dashboard.paused() ? <Play onClick={this.togglePause}/> : <Pause onClick={this.togglePause}/>}
                 <Forward onClick={Dashboard.nextDashboard}/>
                 {Dashboard.connected() ? 
-                <input value={message} onInput={this.handleChange} className="navbar__msg"/> : 
+                <input value={message} onChange={this.handleChange} className="navbar__msg"/> : 
                 <label className="navbar__msg">
                     {message}
                 </label>}
