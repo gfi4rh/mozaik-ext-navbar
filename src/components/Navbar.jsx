@@ -33,7 +33,7 @@ class Navbar extends Component {
 
         this.getInfo();
         this.readMessage()
-        setInterval(this.readMessage, 1000);
+        setInterval(this.readMessage, 10000);
     }
 
     readMessage(){
