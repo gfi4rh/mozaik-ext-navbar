@@ -33,7 +33,7 @@ class Navbar extends Component {
 
         this.getInfo();
         this.readMessage()
-        setInterval(this.readMessage, 10000);
+        setInterval(this.readMessage, 5000);
     }
 
     readMessage(){
@@ -68,21 +68,24 @@ class Navbar extends Component {
 
     handleChange(e) {
 
-        this.setState({
-            message : e.target.value
-        }, () => {
-            const { message } = this.state
-            const { id } = this.props
-            fetch(`/writemessage/${id}`, {
-                method : 'POST',
-                headers : {
-                'Content-Type' : 'application/json'
-                },
-                body : JSON.stringify({
-                    new_msg : message
+        if(e.key === "Enter"){
+            this.setState({
+                message : e.target.value
+            }, () => {
+                const { message } = this.state
+                const { id } = this.props
+                fetch(`/writemessage/${id}`, {
+                    method : 'POST',
+                    headers : {
+                    'Content-Type' : 'application/json'
+                    },
+                    body : JSON.stringify({
+                        new_msg : message
+                    })
                 })
             })
-        })
+        }
+
     }
 
     openLogger() {
@@ -130,7 +133,7 @@ class Navbar extends Component {
                 {Dashboard.paused() ? <Play onClick={this.togglePause}/> : <Pause onClick={this.togglePause}/>}
                 <Forward onClick={Dashboard.nextDashboard}/>
                 {Dashboard.connected() ? 
-                <input value={message} onChange={this.handleChange} className="navbar__msg"/> : 
+                <input value={message} onKeyPress={this.handleChange} className="navbar__msg"/> : 
                 <label className="navbar__msg">
                     {message}
                 </label>}
