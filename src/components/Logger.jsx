@@ -61,7 +61,7 @@ class Logger extends Component {
   render(){
 
     const { handleClose } = this.props
-    const { username, password, username_status, password_status } = this.state
+    const { username, password, username_status, password_status, error } = this.state
 
     return(
       <div  className="logger__form">
