@@ -1,0 +1,46 @@
+.logger
+  &__form
+    display flex
+    flex-direction column
+    padding 1.5em
+
+  &__field
+    margin 0.5em 0
+    display flex
+    flex-direction column
+
+  &__label
+    font-size 1.5em
+
+  &__input
+    border-radius 0.3em
+    padding 0.3em
+    outline none
+    background-color #c6c6c6
+
+  &__input:focus
+    box-shadow: 0 0.1em 0 rgba(0,0,0,0.4) inset
+
+  &__button__container
+    margin-top 1em
+    display flex
+    justify-content space-around
+
+  &__button
+    border-radius 0.3em
+    border-style solid
+    padding 0.3em
+    cursor pointer
+    background-color #535c68
+    color #eedba5
+    border 0.1em #2b3847 solid
+
+  &__button:hover
+    background-color #4e5762
+
+  &__button:active
+    box-shadow 0 0.0.5em 0 rgba(0,0,0,0.4) inset
+
+
+  &__error
+    text-align center
