@@ -1,6 +1,6 @@
-import Sprint from './Sprint.jsx';
+import Navbar from './Navbar.jsx';
 
 
 export default {
-    Sprint
+    Navbar
 };
