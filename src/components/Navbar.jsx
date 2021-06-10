@@ -1,11 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import Mozaik                          from 'mozaik/browser';
 import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';
-/*import classNames                      from 'classnames'
-import d3                              from 'd3/d3'
-import moment                          from 'moment'
-import timezone                        from 'moment-timezone'*/
 import { Forward, Pause, Play, Login, Logout }        from './Shapes.jsx';
 import Logger from './Logger.jsx'
 import Modal from './Modal.jsx'

@@ -8,7 +8,8 @@ class Logger extends Component {
       username : '',
       username_status : true,
       password : '',
-      password_status : true
+      password_status : true,
+      error : null
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -47,7 +48,12 @@ class Logger extends Component {
         if(json.auth){
           login()
           handleClose()
-        }})
+        } else {
+          this.setState({
+            error : "Mauvais Identifiant/Password"
+          })
+        }
+      })
     }
   }
 
@@ -67,6 +73,7 @@ class Logger extends Component {
           <label htmlFor="password" className="logger__label">Password</label>
           <input type="password" name="password" style={{"border-color" : password_status ? 'green' : 'darkred'}} value={password} className="logger__input" onChange={this.handleChange}/>
         </div>
+        <div className="logger__error">{error}</div>
         <div className="logger__button__container">
           <button type="button" className="logger__button" onClick={handleClose}>Annuler</button>
           <button type="submit" className="logger__button" onClick={this.handleSubmit}>Connexion</button>
