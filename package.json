@@ -1,7 +1,7 @@
 {
   "author": {
-    "name": "Colin Regourd",
-    "url": "https://github.com/colin27091"
+    "name": "gfi4rh",
+    "url": "https://github.com/gfi4rh"
   },
   "ava": {
     "files": [
@@ -36,7 +36,7 @@
     "reflux": "^0.4.1"
   },
   "deprecated": true,
-  "description": "Mozaik pattern widgets",
+  "description": "Mozaik navbar widgets",
   "devDependencies": {
     "ava": "0.13.0",
     "babel-eslint": "^5.0.0",
@@ -54,10 +54,10 @@
   },
   "homepage": "https://github.com/gfi4rh/mozaik-ext-navbar",
   "keywords": [
-    "time",
-    "mozaik",
-    "clock",
-    "timezone",
+    "navbar",
+    "message",
+    "connection",
+    "details",
     "widget",
     "extension",
     "dashboard"
